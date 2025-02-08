@@ -1,0 +1,30 @@
+{
+  "name": "wsn",
+  "version": "1.0.0",
+  "description": "Windows Subsystem for Node.js - Native system integration framework",
+  "main": "index.js",
+  "scripts": {
+    "demo": "node demo.js",
+    "start-electron": "electron main-electron.js",
+    "test": "jest",
+    "lint": "eslint lib/**/*.js",
+    "build": "tsc"
+  },
+  "keywords": ["windows", "system", "native", "node", "ffi"],
+  "author": "GoopWeb",
+  "license": "MIT",
+  "dependencies": {
+    "ffi-napi": "^4.0.3",
+    "ref-napi": "^3.0.3",
+    "ref-struct-napi": "^1.1.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^4.5.0",
+    "electron": "^25.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
