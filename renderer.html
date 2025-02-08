@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WSN Electron GUI</title>
+</head>
+<body>
+  <h1>WSN Windows Framework in Node.js</h1>
+  <div id="content"></div>
+  <script>
+    const { Desktop, WebBrowser, Controls, ProcessManager, ProcessNative, Explorer, Drivers } = require('./index');
+    document.getElementById('content').innerHTML = '<p>Check the console for output from the WSN framework.</p>';
+
+    console.log("=== Launching Notepad via native process creation ===");
+    try {
+      const proc = ProcessNative.createProcessNative("C:\\Windows\\System32\\notepad.exe", []);
+      console.log("Native process created:", proc);
+    } catch(e) {
+      console.error("Error creating native process:", e);
+    }
+    console.log("=== Listing Drivers ===");
+    Drivers.listDrivers()
+      .then(output => {
+        console.log("Driver list:");
+        console.log(output);
+      })
+      .catch(err => {
+        console.error("Error listing drivers:", err);
+      });
+    console.log("=== Opening Explorer for C:\\ ===");
+    Explorer.openFolder('C:\\');
+    console.log("=== Simulated Desktop Environment ===");
+    Desktop.launchApp('C:\\Windows\\System32\\notepad.exe');
+  </script>
+</body>
+</html>
